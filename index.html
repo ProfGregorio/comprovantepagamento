@@ -7,7 +7,7 @@
 <button onclick="getLocation()">Gerar comprovante de pagamento</button>
 
 <p id="demo"></p>
-<iframe id="mapa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" > <iframe>
+<iframe id="mapa" width="600" height="450" style="border:0;" allowfullscreen="" > Teste<iframe>
 <script>
 const x = document.getElementById("demo");
 
@@ -22,10 +22,10 @@ function getLocation() {
 function success(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-  const iframe_ = document.getElementById("mapa");
-  iframe_.src = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`  
+  
+  const f = document.getElementsByTagName('iframe')[0]
+  f.src = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`  
   //https://maps.google.com/?q=<lat>,<lng>
-
   
 }
 
