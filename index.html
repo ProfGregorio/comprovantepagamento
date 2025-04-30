@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Comprovante de Pagamento</h1>
+<p>Clique no botão para gerar o comprovante de pagamento</p>
+
+<button onclick="getLocation()">Gerar comprovane de pagamento</button>
+
+<p id="demo"></p>
+<iframe id="mapa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" > <iframe>
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function success(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  const iframe_ = document.getElementById("mapa");
+  iframe_src = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}` 
+  
+  //https://maps.google.com/?q=<lat>,<lng>
+
+  
+}
+
+function error() {
+  alert("Desculpe, o comprovante não está disponível.");
+}
+</script>
+
+</body>
+</html>
+
