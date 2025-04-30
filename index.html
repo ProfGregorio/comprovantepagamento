@@ -6,10 +6,13 @@
 
 <button onclick="getLocation()">Gerar comprovante de pagamento</button>
 
+
 <p id="demo"></p>
-<iframe id="mapa" width="600" height="450" style="border:0;" allowfullscreen="" > Teste<iframe>
+<iframe id="mapa" width="600" height="450" style="border:0;" allowfullscreen="true"></iframe>
+
 <script>
 const x = document.getElementById("demo");
+const f = document.getElementsByTagName('iframe')[0]
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -23,8 +26,9 @@ function success(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
   
-  const f = document.getElementsByTagName('iframe')[0]
-  f.src = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`  
+  //f.src = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`  
+  f.src = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}&output=embed`;
+
   //https://maps.google.com/?q=<lat>,<lng>
   
 }
